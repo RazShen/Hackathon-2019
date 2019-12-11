@@ -93,8 +93,20 @@ body {
 **********************************************/
 
 .rule-filter-container {
-    margin-top: 50px;
-    height: 50vh;
+    margin-top: 100px;
+    height: 10vh;
+    padding: 15px;
+    width:auto;
+    overflow: hidden;
+}
+
+/**********************************************
+*** RULE Add PART
+**********************************************/
+
+.rule-container {
+    margin-top: 40px;
+    height: 30vh;
     padding: 15px;
     width:auto;
     overflow: hidden;
@@ -122,10 +134,23 @@ body {
     margin-right: 20px;
 }
 
+.operator-drop-down-list {
+    width: 100px;
+    height: 35px;
+    background-color: #f2f2f2;
+    float: left;
+    margin-right: 20px;
+}
+
 .text-between-lists{
     float: left;
     margin-right: 20px;
     margin-top: 5px;
+}
+
+.value{
+    float: left;
+    margin-right: 5px;
 }
 
 .add-btn {
@@ -164,6 +189,7 @@ body {
     width: 100%;
     background-color: #f2f2f2;
     height: 70px;
+    width: 1000px;
     border: 1px gray solid;
 }
 
@@ -172,11 +198,15 @@ body {
 **********************************************/
 
 .general-container {
+    width:auto;
+    overflow: hidden;
     padding: 15px;
+}
+
+.value-container {
     width:auto;
     overflow: hidden;
 }
-
 .rule-name-textbox {
     width: 400px;
     background-color: #f2f2f2;

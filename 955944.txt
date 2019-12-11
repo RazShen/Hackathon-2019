@@ -1,0 +1,238 @@
+basicConf {
+  id: 955944
+  prefix: "davidistestingsms"
+  nakedDomain: "incaptest.co"
+  cname: "64zqf.x.incapdns.net"
+  secret: "14d6d84770a1898f"
+  siteGroupId: 5071
+  accountId: 624075
+  domainsRelation: DOMAINS_FULL_ONLY
+  flags {
+    nullRoute: false
+    differentSrcIPs: false
+    isInOpenMode: false
+    isInBypass: false
+    isDuplicate: false
+    isFullyConfigured: false
+    isUnderDDoS: false
+    addInfoHeaders: false
+    doDynamicCompression: true
+    sslOnly: false
+    connectionPrepoolingEnabled: false
+    lbSessionStickiness: true
+    injectClientClassificationJsToHead: false
+  }
+  siteGroup: "prod-ddos-continent_0_71"
+  externalId: 1787471
+  siteGroupLastModificationTime: 1551605047
+  siteRegion: EU
+}
+destinationsConf {
+  port: 80
+  sslPort: 443
+  glb_alg: GLB_ACTIVE_STANDBY
+  data_centers {
+    ipResolutionMode: SITE_SINGLE_IP
+    status: SDC_STATUS_ACTIVE
+    port_range_extent: 1
+    lb_alg: LB_LEAST_PENDING_REQUESTS
+    rankedIps {
+      ip: "54.197.53.104"
+      priority: 0
+      disabled: false
+    }
+    id: 1999092
+    forwarderPop: "iad"
+  }
+  newMonitoringConf {
+    use_verify_down_test: true
+    response_time_considered_as_down_sec: 35
+    passive_switch_threshold_percentage: 30
+    passive_switch_sliding_window_size_sec: 40
+    passive_switch_min_of_reqs: 66
+    verify_up_threshold: 3
+    verify_up_timeout: 15
+    verify_test_url: "/"
+    SiteStatusListLevel: 2
+  }
+}
+cachingConf {
+  mode: CACHE_NONE
+  doContentMinification: true
+  disableCacheAsyncValidate: true
+  minifyJS: false
+  minifyCSS: false
+  optimizePNG: false
+  optimizeJPG: false
+  jpegOptMode: JPEG_NON_LOSSY
+  progressiveJPEG: false
+  minifyHtml: false
+  respectValidationRequest: false
+  respectVaryHeader: false
+  preferMinimalMaxAge: false
+  ignoreEtag: false
+  noSSLRestrictions: false
+  disableClientSideCaching: false
+  cache300x: false
+  disableCachingHttps: true
+}
+securityConf {
+  rules {
+    id: 0
+    action: RULE_ACTION_BLOCK
+    name: "SQL Injection"
+  }
+  rules {
+    id: 1
+    action: RULE_ACTION_BLOCK
+    name: "Cross Site Scripting"
+  }
+  rules {
+    id: 3
+    action: RULE_ACTION_BLOCK
+    name: "Illegal Resource Access"
+  }
+  rules {
+    id: 4
+    action: RULE_ACTION_HIDDEN_ALERT
+    name: "Bad Bots"
+  }
+  rules {
+    id: 8
+    name: "DDoS"
+  }
+  rules {
+    id: 9
+    action: RULE_ACTION_QUARANTINE_URL
+    name: "Backdoor Protect"
+  }
+  rules {
+    id: 10
+    action: RULE_ACTION_BLOCK
+    name: "Remote File Inclusion"
+  }
+  badBotsConf {
+    challengeUnknown: false
+  }
+  ddosConf {
+    activationMode: DDOS_AUTO
+    planSupport: DDOS_PLAN_PROTECT_CONFIGURABLE
+    blockNonCrucialBots: false
+    challengeMode: DDOS_CHALLENGE_CAPTCHA
+    attackThreshold: 10
+  }
+  backDoorConf {
+  }
+}
+extraConf {
+  flags: "ddos-disable-abort-incapsula-ips"
+  flags: "out-web-sticky-src-ips"
+}
+monitoringConf {
+}
+webApplications {
+}
+dualFactorConf {
+  isEnabled: true
+  googleAuth: true
+  smsAuth: true
+  emailAuth: true
+}
+siteRulesConf {
+  manualRules {
+    id: 249290
+    action: RULE_ACTION_ALERT
+    filter: "ClientIP == 127.0.0.0-127.0.0.255"
+    notifyClient: false
+    name: "stam"
+  }
+  manualRules {
+    id: 285599
+    action: RULE_ACTION_ALERT
+    filter: "URL contains \"%5E/false\""
+    notifyClient: false
+    name: "Test Distil URL injection rejection"
+  }
+  cacheRules {
+    rules {
+      id: 58892
+      action: HTTP_CACHE_ADD_TAG
+      filter: "HeaderValue contains {\"from\";\"nava\"}"
+      tag {
+        value: "nava"
+        use_for_grouping: true
+        add_to_key: false
+      }
+    }
+    rules {
+      id: 58893
+      action: HTTP_CACHE_ADD_TAG
+      filter: "Always == true"
+      tag {
+        value: "nava"
+        use_for_grouping: true
+        add_to_key: true
+      }
+    }
+    rules {
+      id: 59903
+      action: HTTP_CACHE_FORCE_VALIDATION
+      filter: "URL contains \"validate\""
+    }
+  }
+  dualFactorRules {
+    id: 0
+    filter: "URL contains LP"
+  }
+  suppressionThreshold {
+    type: WEB_LOGS
+    threshold: 5000
+  }
+  urlRewriteRules {
+    id: 272538
+    filter: "Always == true"
+    replacement {
+      incap_regex: "/nava/*"
+      replacement_pattern: "/$1"
+      type: RGX_TYPE_INCAP
+    }
+  }
+  requestHeaderRewriteRules {
+    id: 281354
+    filter: " ResponseContentType not-contains \"XML\""
+    name: "shlomit"
+    delete: true
+    is_cookie: false
+    response_header: true
+  }
+  miscRules {
+    filter: "ParamValue == {\"origin_pop\";\"disabled\"}"
+    action: MR_ACTION_DISABLE_FORWARDER
+  }
+}
+miscConf {
+}
+errorPages {
+}
+accelerationConf {
+  numPrepooledConnections: 2
+  originShieldPops: "cph"
+  originShieldPops: "ams"
+  originShieldPops: "cdg"
+}
+noticationsConf {
+  ruleId: 0
+  ruleId: 1
+  ruleId: 3
+  ruleId: 8
+  ruleId: 9
+  ruleId: 10
+  ruleId: 11
+}
+logCollectorItem {
+  id: 573685
+  configId: 2029
+  configAccountId: 624075
+  type: WEB_LOGS
+  level: FULL
+}

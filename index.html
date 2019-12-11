@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,600" rel="stylesheet" type="text/css">
-        <link type="text/css" rel="stylesheet" href="style.css">
+        <link type="text/css" rel="stylesheet" href="/static/style.css?v={random number/string}">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -16,7 +16,7 @@
     <body>
         
         <div class="menu-bar-container">
-            <div class="menu-item">raz.incaptest.co</div>
+            <div class="menu-item">test.incaptest.co</div>
             <div class="menu-item">Dashboard</div>
             <div class="menu-item">Events</div>
             <div class="menu-item">Settings</div>
@@ -27,26 +27,50 @@
         
         <div class="top">
             <div>
-                <img class="logo" src="imperva-logo.png">
+                <img class="logo" src="/static/imperva-logo.png">
             </div>
             <div class="md-form mt-0">
               <i class="material-icons mdc-button__icon">search</i>
               <input class="form-control" type="text" placeholder="Search" aria-label="Search">
             </div>
         </div>
+
         
-        
-        <div class="rule-filter-container">
+        <div class="rule-container">
             <div class="section-title">
-                <h5>Rule Filter</h5>
+                <h5>Add Metric</h5>
             </div>
             
             <div class="form-container">
-                <form >
-                
+                <form action="" method="post">
+                <div class="textbox-title">Choose Filter</div>
                 <div class="lists">
-                    <select class="drop-down-list" name="api_1">
-                        <option selected disabled>API Rate 1</option>
+                    <select class="drop-down-list" name="fil">
+                        <option selected disabled>Filter</option>
+                        <option>IP</option>
+                        <option>Rate</option>
+                        <option>Clapp</option>
+                    </select>
+                    
+                    <select class="operator-drop-down-list" name="op">
+                        <option selected disabled> Operator </option>
+                        <option>>=</option>
+                        <option>=</option>
+                        <option>!=</option>
+                        <option>Contains</option>
+                        <option>Not Contains</option>
+                    </select>
+
+                    <div class="value-container">
+                        <input type="text" class="value" placeholder="Enter value" name="val">
+                    </div>
+                </div> 
+                <br>
+                <div class="textbox-title">Choose Metrics</div>
+
+                <div class="lists">
+                    <select class="drop-down-list" name="mt1">
+                        <option selected disabled>Metric 1</option>
                         <option>Rate1</option>
                         <option >Rate2</option>
                         <option>Rate3</option>
@@ -56,8 +80,8 @@
                         AND
                     </div>
                     
-                    <select class="drop-down-list" name="api_2">
-                        <option selected disabled>API Rate 2</option>
+                    <select class="drop-down-list" name="mt2">
+                        <option selected disabled>Metric 2</option>
                         <option>Rate1</option>
                         <option >Rate2</option>
                         <option>Rate3</option>
@@ -65,11 +89,12 @@
                 </div>
                     
                 <button type="submit" class="add-btn">
-                    <img class="add-btn-logo" src="add-btn.png" onclick="showAddRuleMsg();"/></button>
+                    <img class="add-btn-logo" src="/static/add-btn.png" onclick="showAddRuleMsg();"/></button>
                 </form>
             </div>
             
             <div class="editor-container">
+                <br>
                 <div class="textbox-title">Editor</div>
                 <div class="editor-desc-text">
                 Your filter must follow the rules filter <a href="">syntax</a></div>
@@ -83,15 +108,16 @@
         
         </div>
         
+    
         <div class="general-container">
             <div class="section-title">General</div>
             <div class="textbox-title">Rule Name</div>
             <input type="text" class="rule-name-textbox" placeholder="Enter rule name">
             <br>
-            <img src="checkboxes.PNG" alt="checkboxes" class="checkboxes">
+            <img src="/static/checkboxes.PNG" alt="checkboxes" class="checkboxes">
         </div>
         
-        <script src="app.js"></script>
+        <script src="/static/app.js"></script>
         
     </body>
 </html>
