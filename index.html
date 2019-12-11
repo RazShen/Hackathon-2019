@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,600" rel="stylesheet" type="text/css">
+        <link type="text/css" rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        
+        <title>Imperva - Hackathon</title>
+    </head>
+    <body>
+        
+        <div class="menu-bar-container">
+            <div class="menu-item">raz.incaptest.co</div>
+            <div class="menu-item">Dashboard</div>
+            <div class="menu-item">Events</div>
+            <div class="menu-item">Settings</div>
+            <div class="menu-item">Rules</div>
+            <div class="menu-item">Admin</div>
+
+        </div>
+        
+        <div class="top">
+            <div>
+                <img class="logo" src="imperva-logo.png">
+            </div>
+            <div class="md-form mt-0">
+              <i class="material-icons mdc-button__icon">search</i>
+              <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+            </div>
+        </div>
+        
+        
+        <div class="rule-filter-container">
+            <div class="section-title">
+                <h5>Rule Filter</h5>
+            </div>
+            
+            <div class="form-container">
+                <form >
+                
+                <div class="lists">
+                    <select class="drop-down-list" name="api_1">
+                        <option selected disabled>API Rate 1</option>
+                        <option>Rate1</option>
+                        <option >Rate2</option>
+                        <option>Rate3</option>
+                    </select>
+                    
+                    <div class="text-between-lists">
+                        AND
+                    </div>
+                    
+                    <select class="drop-down-list" name="api_2">
+                        <option selected disabled>API Rate 2</option>
+                        <option>Rate1</option>
+                        <option >Rate2</option>
+                        <option>Rate3</option>
+                    </select>
+                </div>
+                    
+                <button type="submit" class="add-btn">
+                    <img class="add-btn-logo" src="add-btn.png" onclick="showAddRuleMsg();"/></button>
+                </form>
+            </div>
+            
+            <div class="editor-container">
+                <div class="textbox-title">Editor</div>
+                <div class="editor-desc-text">
+                Your filter must follow the rules filter <a href="">syntax</a></div>
+                <div>
+                    <input type="text" name="editor" class="editor-textbox">
+                </div>
+            
+            </div>
+            
+            <div id="add-msg"></div>
+        
+        </div>
+        
+        <div class="general-container">
+            <div class="section-title">General</div>
+            <div class="textbox-title">Rule Name</div>
+            <input type="text" class="rule-name-textbox" placeholder="Enter rule name">
+            <br>
+            <img src="checkboxes.PNG" alt="checkboxes" class="checkboxes">
+        </div>
+        
+        <script src="app.js"></script>
+        
+    </body>
+</html>

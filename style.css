@@ -1,0 +1,190 @@
+/**********************************************
+*** GENERAL
+**********************************************/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+body {
+    color: #555;
+    font-family: Open Sans;
+    font-size: 16px;
+    position: relative;
+    height: 100vh;
+    font-weight: 400;
+}
+
+.right { float: right; }
+.red { color: #FF5049 !important; }
+.red-focus:focus { border: 1px solid #FF5049 !important; }
+
+/**********************************************
+*** MENU BAR PART
+**********************************************/
+
+.menu-bar-container {
+    float: left;
+    background-color: black;
+    width: 200px;
+    height: 100%  
+}
+
+.menu-item {
+    color: white;
+    width: 100%;
+    padding-left: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 14px;
+    border-top: 1px #6495ED solid;
+    border-bottom: 1px #6495ED solid;
+
+}
+
+.menu-item:hover {
+    border-left: 2px #6495ED solid;
+}
+
+/**********************************************
+*** TOP PART
+**********************************************/
+
+.top {
+    
+    height: 60px;
+    padding: 15px;
+    overflow: hidden;
+    width:auto;
+}
+
+.logo {
+    width: 120px;
+    float: left;
+}
+
+.md-form.mt-0 {
+    width:200px;
+    display:flex;
+    align-items: center;
+    float: right;
+    margin-right: 50px;
+}
+
+.material-icons.mdc-button__icon{
+  position:absolute;
+}
+
+.mdc-button__icon + input{
+    padding-left: 25px;
+    background-color: #f2f2f2;
+}
+
+/**********************************************
+*** RULE FILTER PART
+**********************************************/
+
+.rule-filter-container {
+    margin-top: 50px;
+    height: 50vh;
+    padding: 15px;
+    width:auto;
+    overflow: hidden;
+    border-bottom: 1px lightgray solid;
+}
+
+
+.section-title {
+    margin-bottom: 20px;
+}
+
+.form-container {
+    
+}
+
+.lists {
+
+}
+
+.drop-down-list {
+    width: 250px;
+    height: 35px;
+    background-color: #f2f2f2;
+    float: left;
+    margin-right: 20px;
+}
+
+.text-between-lists{
+    float: left;
+    margin-right: 20px;
+    margin-top: 5px;
+}
+
+.add-btn {
+    float: left;
+    border: none;
+}
+
+.add-btn-logo {
+    width: 65px;
+}
+
+#add-msg {
+    color: green;
+}
+
+/**********************************************
+*** EDITOR PART
+**********************************************/
+
+.editor-container {
+    overflow: hidden;
+    clear: both;
+}
+
+.textbox-title {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.editor-desc-text {
+    color: lightgray;
+    font-size: 14px;
+}
+
+.editor-textbox {
+    width: 100%;
+    background-color: #f2f2f2;
+    height: 70px;
+    border: 1px gray solid;
+}
+
+/**********************************************
+*** GENERAL PART
+**********************************************/
+
+.general-container {
+    padding: 15px;
+    width:auto;
+    overflow: hidden;
+}
+
+.rule-name-textbox {
+    width: 400px;
+    background-color: #f2f2f2;
+    height: 35px;
+    border: 1px gray solid;
+}
+
+.checkboxes {
+    margin-top: 10px;
+    width: 250px;
+}
