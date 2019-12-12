@@ -57,7 +57,7 @@ destinationsConf {
   }
 }
 cachingConf {
-  mode: CACHE_NONE
+  mode: CACHE_AGGRESSIVE
   doContentMinification: true
   disableCacheAsyncValidate: true
   minifyJS: false
